@@ -5,11 +5,13 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.persist.jpa.JpaPersistModule;
 
-public class NonServletModule extends AbstractModule{
-	
-	@Override 
+public class NonServletModule extends AbstractModule {
+
+	@Override
 	protected void configure() {
-		 bind(MyService.class).to(MyServiceImpl.class);
-		 
+		
+		
+		bind(MyService.class).to(MyServiceImpl.class);
+
 	}
 }

@@ -34,7 +34,7 @@ public class Employee {
 		return emp_name;
 	}
 
-	public void setName(String name) {
+	public void setName(String emp_name) {
 		this.emp_name = emp_name;
 	}
 

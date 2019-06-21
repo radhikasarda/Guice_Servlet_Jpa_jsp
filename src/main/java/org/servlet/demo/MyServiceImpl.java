@@ -1,17 +1,18 @@
 package org.servlet.demo;
 
+import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.persist.Transactional;
 
+@Singleton
 public class MyServiceImpl implements MyService {
 
-	@Inject 
-	Provider<EntityManager> entityManagerProvider ;
-	
 	@Inject
+	Provider<EntityManager> entityManagerProvider;
+
 	EntityManager entityManager;
 
 	public String hello(String name) {
@@ -19,19 +20,14 @@ public class MyServiceImpl implements MyService {
 	}
 
 	@Transactional
-	public void saveEmployee(Employee emp) {
- 
-		entityManager = entityManagerProvider.get();
-		
-		try {
-		entityManager.getTransaction().begin();
-		emp.setName("Radhika");
+	public void saveEmployee(Employee employee) {
 
-		entityManager.persist(emp);
-		entityManager.getTransaction().commit();
-		}catch(Exception e) {
-			System.out.println("Hey there!!");
-		}
+		entityManager = entityManagerProvider.get();
+
+		employee.setName("Radhika");
+
+		entityManager.persist(employee);
+
 	}
 
 }
